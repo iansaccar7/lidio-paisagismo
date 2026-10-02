@@ -404,6 +404,10 @@ body {
     transform: rotate(6deg);
   }
 }
+.plan-art .soil {
+  fill: #7a5234;
+  stroke: #5b3a22;
+}
 .plan-art .bloom {
   fill: var(--mint);
   stroke: none;
@@ -481,7 +485,7 @@ html[data-motion="enabled"] #como .steps-grid::after {
   background-size: 120px 20px;
 }
 
-/* Botão que enche de terracota escura */
+/* Botão que enche de terra */
 .button {
   position: relative;
   overflow: hidden;
@@ -492,7 +496,7 @@ html[data-motion="enabled"] #como .steps-grid::after {
   position: absolute;
   inset: -20% -15% 0;
   z-index: -1;
-  background: #00301f;
+  background: #5b3a22;
   border-radius: 45% 55% 0 0 / 14px 14px 0 0;
   transform: translateY(105%);
   transition: transform 520ms cubic-bezier(0.23, 1, 0.32, 1);
