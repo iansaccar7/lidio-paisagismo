@@ -569,23 +569,23 @@ html[data-motion="enabled"] #como .steps-grid::after {
   }
 }
 
-/* Rodapé em verde floresta, como os blocos da referência */
+/* Rodapé em marrom de terra */
 .contact {
-  background: var(--accent);
+  background: #5b3a22;
   color: var(--paper);
 }
 .contact p,
 .footer-bottom {
-  color: #c9dccf;
+  color: #e8d5c2;
 }
 .footer-bottom {
-  border-color: #1f5e4c;
+  border-color: #7a5234;
 }
 .contact a:focus-visible {
   outline-color: var(--mint);
 }
 .contact::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='20'%3E%3Cpath d='M0 20V14a10 10 0 0 1 20-2a12 12 0 0 1 24 0a9 9 0 0 1 18 1a11 11 0 0 1 22-1a10 10 0 0 1 18 0a9 9 0 0 1 18 2V20Z' fill='%23004737'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='20'%3E%3Cpath d='M0 20V14a10 10 0 0 1 20-2a12 12 0 0 1 24 0a9 9 0 0 1 18 1a11 11 0 0 1 22-1a10 10 0 0 1 18 0a9 9 0 0 1 18 2V20Z' fill='%235b3a22'/%3E%3C/svg%3E");
 }
 
 /* Jardim vertical e gramado desenhados em canvas */
