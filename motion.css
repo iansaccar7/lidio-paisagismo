@@ -97,7 +97,7 @@ html[data-motion="enabled"] .service {
   html[data-motion="enabled"] .pair-grid .pair:nth-child(n) {
     position: sticky;
     top: 110px;
-    background: var(--paper, #f6f1ea);
+    background: var(--paper, #fffbec);
     padding: 30px 0 45px;
     margin-bottom: 160px;
     border-top: 1px solid var(--line);
@@ -179,4 +179,467 @@ html[data-motion="enabled"] [data-reveal]:not(.is-visible) {
 
 html[data-motion="enabled"] .faq-list {
   overflow: clip;
+}
+
+/* Faixa rolando no topo */
+.ticker {
+  overflow: hidden;
+  background: var(--accent);
+  color: var(--paper);
+  font-size: 11px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+.ticker > div {
+  display: flex;
+  width: max-content;
+  animation: ticker 34s linear infinite;
+}
+.ticker span {
+  padding: 0 26px;
+}
+.ticker span::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 11px;
+  margin-right: 26px;
+  border-radius: 0 100% 0 100%;
+  background: var(--mint);
+  transform: rotate(20deg);
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Trepadeira que desce com a rolagem */
+body {
+  position: relative;
+}
+.vine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+.vine-stem {
+  fill: none;
+  stroke: #004737;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+.vine .leaf,
+.vine .flower {
+  transform-box: fill-box;
+  transform: scale(0);
+  transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.vine .leaf {
+  fill: #2f7a57;
+  transform-origin: 50% 100%;
+}
+.vine .flower {
+  fill: var(--mint);
+  transform-origin: 50% 50%;
+}
+.vine .flower circle:last-child {
+  fill: #fffbec;
+}
+.vine .open {
+  transform: scale(var(--s, 1));
+}
+
+/* Antes e depois de arrastar */
+.compare {
+  --pos: 50%;
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.compare .photo {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+.compare-after {
+  justify-content: flex-end !important;
+  padding-right: 9% !important;
+}
+.compare-before {
+  justify-content: flex-start !important;
+  padding-left: 9% !important;
+  background: #d6e3c9 !important;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--accent);
+}
+.compare-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: var(--accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 7-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E")
+    center / 22px no-repeat;
+  box-shadow: 0 0 0 6px rgba(86, 240, 159, 0.45);
+}
+.compare input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+.compare:has(input:focus-visible) .compare-handle::after {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+.compare-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.compare-legend span:last-child {
+  color: var(--accent-text);
+}
+
+/* Serviços */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 300px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+  text-decoration: none;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s;
+}
+@media (hover: hover) {
+  .plan:hover {
+    background: var(--wash);
+    border-color: var(--accent);
+  }
+}
+.plan h3 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+.plan p {
+  font-size: 14px;
+  color: var(--muted);
+}
+.plan-cta {
+  margin-top: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+.plan-cta::after {
+  content: " →";
+}
+.plan-art {
+  width: 64px;
+  height: 64px;
+  color: var(--ink);
+  stroke-width: 1.6;
+}
+.plan-art .grow {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: grow 3.2s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+@keyframes grow {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  35%,
+  85% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.plan-art .sway {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+@keyframes sway {
+  from {
+    transform: rotate(-6deg);
+  }
+  to {
+    transform: rotate(6deg);
+  }
+}
+.plan-art .bloom {
+  fill: var(--mint);
+  stroke: none;
+}
+.plan-art .rain-drop {
+  stroke: #2f7a57;
+  animation: water 1.4s linear infinite;
+}
+.plan-art .d2 {
+  animation-delay: 0.45s;
+}
+.plan-art .d3 {
+  animation-delay: 0.9s;
+}
+@keyframes water {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+}
+
+/* Primeiro contato */
+.split {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 100px;
+}
+.split .section-head {
+  display: block;
+}
+#como .steps-grid {
+  position: relative;
+  padding-left: 46px;
+  gap: 54px;
+}
+#como .steps-grid::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 6px;
+  background: var(--wash);
+}
+html[data-motion="enabled"] #como .steps-grid::after {
+  left: 0;
+  width: 6px;
+  border-radius: 6px;
+}
+#como .step-num {
+  font-size: 52px;
+}
+
+/* Cerca-viva no topo das faixas */
+.budget,
+.contact {
+  position: relative;
+  border-radius: 0 !important;
+}
+.budget::before,
+.contact::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -19px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='20'%3E%3Cpath d='M0 20V14a10 10 0 0 1 20-2a12 12 0 0 1 24 0a9 9 0 0 1 18 1a11 11 0 0 1 22-1a10 10 0 0 1 18 0a9 9 0 0 1 18 2V20Z' fill='%23e6efdc'/%3E%3C/svg%3E")
+    repeat-x;
+  background-size: 120px 20px;
+}
+
+/* Botão que enche de terracota escura */
+.button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  inset: -20% -15% 0;
+  z-index: -1;
+  background: #00301f;
+  border-radius: 45% 55% 0 0 / 14px 14px 0 0;
+  transform: translateY(105%);
+  transition: transform 520ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.button.secondary::before {
+  background: var(--wash);
+}
+@media (hover: hover) {
+  .button:hover {
+    filter: none;
+  }
+  .button:hover::before {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .plan-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .plan:last-child {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+  .split {
+    gap: 50px;
+  }
+}
+@media (max-width: 760px) {
+  .compare {
+    aspect-ratio: 4/3;
+  }
+  .compare .photo-label small {
+    display: none;
+  }
+  .plan-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .plan,
+  .plan:last-child {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 4px 16px;
+    min-height: 0;
+    padding: 20px;
+  }
+  .plan-art {
+    grid-row: span 3;
+    width: 52px;
+    height: 52px;
+  }
+  .plan h3 {
+    font-size: 22px;
+    margin: 0;
+  }
+  .plan-cta {
+    margin-top: 6px;
+  }
+  .split {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  #como .steps-grid {
+    padding-left: 30px;
+    gap: 40px;
+  }
+  #como .step-num {
+    font-size: 42px;
+  }
+}
+
+/* Rodapé em verde floresta, como os blocos da referência */
+.contact {
+  background: var(--accent);
+  color: var(--paper);
+}
+.contact p,
+.footer-bottom {
+  color: #c9dccf;
+}
+.footer-bottom {
+  border-color: #1f5e4c;
+}
+.contact a:focus-visible {
+  outline-color: var(--mint);
+}
+.contact::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='20'%3E%3Cpath d='M0 20V14a10 10 0 0 1 20-2a12 12 0 0 1 24 0a9 9 0 0 1 18 1a11 11 0 0 1 22-1a10 10 0 0 1 18 0a9 9 0 0 1 18 2V20Z' fill='%23004737'/%3E%3C/svg%3E");
+}
+
+/* Jardim vertical e gramado desenhados em canvas */
+[data-plants] {
+  position: relative;
+}
+.plants {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+[data-plants="wall"] .plants {
+  top: 0;
+  height: 100%;
+}
+[data-plants="grass"] .plants {
+  bottom: 0;
+  height: 90px;
+}
+[data-plants] > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.quote-section {
+  background: #0f3b2d;
+  overflow: hidden;
+}
+.quote-section > .wrap {
+  background: var(--paper);
+  border-radius: 40px;
+  padding: 64px 70px;
+}
+#como {
+  padding-bottom: 150px;
+}
+@media (max-width: 760px) {
+  .quote-section {
+    padding-block: 44px;
+  }
+  .quote-section > .wrap {
+    border-radius: 26px;
+    padding: 38px 22px;
+  }
+  #como {
+    padding-bottom: 110px;
+  }
+  [data-plants="grass"] .plants {
+    height: 70px;
+  }
+}
+
+/* Faixa creme para a cerca-viva do rodapé aparecer depois do jardim vertical */
+.quote-section {
+  margin-bottom: 70px;
+}
+@media (max-width: 760px) {
+  .quote-section {
+    margin-bottom: 48px;
+  }
 }

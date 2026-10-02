@@ -8,7 +8,7 @@
       name="description"
       content="Meu jardim ficou melhor do que eu imagina, contou um cliente. Paisagismo e jardinagem com o cuidado e a pontualidade que aparecem nas avaliações."
     />
-    <meta name="theme-color" content="#F6F1EA" />
+    <meta name="theme-color" content="#FFFBEC" />
     <meta property="og:title" content="Lidio Paisagismo" />
     <meta
       property="og:description"
@@ -23,13 +23,19 @@
   </head>
   <body class="lidio">
     <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <div class="ticker" aria-hidden="true">
+      <div>
+        <span>5,0 no Google</span><span>Jabaquara · Zona Sul de SP</span><span>Paisagismo e jardinagem</span><span>(11) 94132-4116</span>
+        <span>5,0 no Google</span><span>Jabaquara · Zona Sul de SP</span><span>Paisagismo e jardinagem</span><span>(11) 94132-4116</span>
+      </div>
+    </div>
     <header class="top">
       <div class="wrap top-inner">
         <a class="brand" href="#inicio" aria-label="Lidio Paisagismo — início"
           ><strong>Lidio</strong><small>Paisagismo e jardinagem</small></a
         >
         <nav class="nav" aria-label="Navegação principal">
-          <a href="#galeria">Galeria</a><a href="#avaliacoes">Avaliações</a
+          <a href="#galeria">Galeria</a><a href="#servicos">Serviços</a><a href="#avaliacoes">Avaliações</a
           ><a href="#orcamento">Orçamento</a>
         </nav>
         <a
@@ -71,24 +77,17 @@
               </div>
             </div>
           </div>
-          <div class="comparison-cover">
-            <figure>
-              <div class="photo">
-                <span class="photo-label"
-                  >[FOTO: antes 1]<small>Foto real a inserir · 3:2</small></span
-                >
-              </div>
-              <figcaption>Antes</figcaption>
-            </figure>
-            <figure>
-              <div class="photo">
-                <span class="photo-label"
-                  >[FOTO: depois 1]<small>Foto real a inserir · 3:2</small></span
-                >
-              </div>
-              <figcaption>Depois</figcaption>
-            </figure>
+          <div class="compare" data-compare>
+            <div class="photo compare-after">
+              <span class="photo-label">[FOTO: depois 1]<small>Foto real a inserir · 16:9</small></span>
+            </div>
+            <div class="photo compare-before">
+              <span class="photo-label">[FOTO: antes 1]<small>Foto real a inserir · 16:9</small></span>
+            </div>
+            <span class="compare-handle" aria-hidden="true"></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois" />
           </div>
+          <div class="compare-legend"><span>Antes</span><span>Arraste para comparar</span><span>Depois</span></div>
         </div>
       </section>
       <section id="galeria" class="section">
@@ -172,6 +171,64 @@
             </div>
           </div>
           <p class="gallery-foot">Galeria demonstrativa aguardando fotos reais da empresa.</p>
+        </div>
+      </section>
+      <section id="servicos" class="section plans">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">Serviços</span>
+              <h2>Do primeiro jardim<br />ao jardim de sempre.</h2>
+            </div>
+            <p>Paisagismo e jardinagem. Escolha por onde começar e a conversa já abre com isso.</p>
+          </div>
+          <div class="plan-grid">
+            <a class="plan" href="https://wa.me/5511941324116?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20um%20jardim%20novo." target="_blank" rel="noopener noreferrer">
+              <svg class="plan-art" viewBox="0 0 64 64"><path d="M14 54h36"/><g class="grow"><path d="M32 54V30"/><path d="M32 40c-9 0-13-5-13-12 8 0 13 4 13 12Z"/><path d="M32 33c0-9 5-14 13-14 0 9-5 14-13 14Z"/></g></svg>
+              <h3>Jardim novo</h3>
+              <p>Para quem tem o espaço, mas ainda não tem o jardim.</p>
+              <span class="plan-cta">Conversar sobre isso</span>
+            </a>
+            <a class="plan" href="https://wa.me/5511941324116?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20a%20reforma%20de%20um%20jardim." target="_blank" rel="noopener noreferrer">
+              <svg class="plan-art" viewBox="0 0 64 64"><path d="M20 42h24l-3 14H23Z"/><g class="sway"><path d="M32 42V22"/><path d="M32 30c-7-1-10-6-9-12 7 1 10 5 9 12Z"/><path d="M32 26c6-2 11 0 13 6-6 2-11 0-13-6Z"/><circle class="bloom" cx="32" cy="18" r="4"/></g></svg>
+              <h3>Reforma</h3>
+              <p>Para o jardim que já existe, mas não ficou como você queria.</p>
+              <span class="plan-cta">Conversar sobre isso</span>
+            </a>
+            <a class="plan" href="https://wa.me/5511941324116?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20a%20manuten%C3%A7%C3%A3o%20de%20um%20jardim." target="_blank" rel="noopener noreferrer">
+              <svg class="plan-art" viewBox="0 0 64 64"><path d="M14 24h22v18H14Z"/><path d="M36 28l14-8M14 28c-6 0-6 10 0 10"/><path class="rain-drop d1" d="M50 30v3"/><path class="rain-drop d2" d="M54 28v3"/><path class="rain-drop d3" d="M46 32v3"/><path d="M40 56h18"/></svg>
+              <h3>Manutenção</h3>
+              <p>Para o jardim continuar bonito depois de pronto.</p>
+              <span class="plan-cta">Conversar sobre isso</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="como" class="section" data-plants="grass">
+        <div class="wrap split">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">Primeiro contato</span>
+              <h2>Da ideia<br />ao seu jardim.</h2>
+            </div>
+          </div>
+          <div class="steps-grid">
+            <article class="step">
+              <span class="step-num">01</span>
+              <h3>Conte o que você imagina</h3>
+              <p>Jardim novo, reforma ou manutenção. Se não sabe a metragem, tudo bem.</p>
+            </article>
+            <article class="step">
+              <span class="step-num">02</span>
+              <h3>Mande uma foto do espaço</h3>
+              <p>Na conversa, a foto mostra como o lugar está hoje.</p>
+            </article>
+            <article class="step">
+              <span class="step-num">03</span>
+              <h3>Converse sobre o orçamento</h3>
+              <p>Com o espaço e a ideia em mãos, vocês combinam o próximo passo.</p>
+            </article>
+          </div>
         </div>
       </section>
       <section class="section budget" id="orcamento">
@@ -291,7 +348,7 @@
           </div>
         </div>
       </section>
-      <section id="avaliacoes" class="section quote-section">
+      <section id="avaliacoes" class="section quote-section" data-plants="wall">
         <div class="wrap">
           <div class="section-head">
             <h2>Quem chamou<br />conta como foi.</h2>
@@ -338,8 +395,9 @@
             >
           </div>
           <div>
-            <h3>Horário de atendimento</h3>
-            <p>Horário de atendimento: a confirmar.</p>
+            <!-- [CONFIRMAR] horário: o Google mostra todos os dias, das 8h às 18h -->
+            <h3>Atendimento</h3>
+            <p>Pelo WhatsApp ou por telefone.</p>
             <a href="tel:+5511941324116">Ligar: (11) 94132-4116</a>
           </div>
         </div>

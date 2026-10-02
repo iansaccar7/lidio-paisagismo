@@ -19,15 +19,16 @@
   font-display: swap;
 }
 :root {
-  --paper: #f6f1ea;
-  --accent: #b5562f;
-  --accent-text: #994322;
-  --on-accent: #ffffff;
-  --wash: #eee3d7;
-  --line: #d8c6b8;
-  --surface: #fffefa;
-  --ink: #252922;
-  --muted: #565c51;
+  --paper: #fffbec;
+  --accent: #004737;
+  --accent-text: #004737;
+  --on-accent: #fffbec;
+  --mint: #56f09f;
+  --wash: #e6efdc;
+  --line: #cbd8c0;
+  --surface: #fffdf5;
+  --ink: #17261f;
+  --muted: #4b5a50;
   --display: "Fraunces", serif;
   --heading-weight: 600;
 }
